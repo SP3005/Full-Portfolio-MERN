@@ -8,18 +8,16 @@ const router = express.Router();
 
 router.get("/download", (req, res) => {
   try {
-    // 📄 Absolute resume path
     const filePath = path.resolve(__dirname, "..", "assets", "resume.pdf");
 
-    // ✅ Check file exists FIRST
     if (!fs.existsSync(filePath)) {
       return res.status(404).send("Resume not found");
     }
 
-    // ⚡ Send resume immediately (FAST)
+    // ⚡ 1️⃣ Send resume instantly
     res.download(filePath, "Sujal_Patel_Resume.pdf");
 
-    // 🚀 Background task: location + email (NON-BLOCKING)
+    // 🚀 2️⃣ Background email (NON-BLOCKING)
     (async () => {
       try {
         const ip =
@@ -28,10 +26,28 @@ router.get("/download", (req, res) => {
 
         const finalIP =
           ip === "::1" || ip.startsWith("127.")
-            ? "8.8.8.8"
+            ? null
             : ip;
 
-        const geo = await axios.get(`https://ipapi.co/${finalIP}/json/`);
+        let locationHTML = "<p><b>Location:</b> Not available</p>";
+
+        if (finalIP) {
+          try {
+            const geo = await axios.get(
+              `https://ipapi.co/${finalIP}/json/`,
+              { timeout: 3000 }
+            );
+
+            locationHTML = `
+              <p><b>Country:</b> ${geo.data.country_name || "N/A"}</p>
+              <p><b>City:</b> ${geo.data.city || "N/A"}</p>
+              <p><b>Region:</b> ${geo.data.region || "N/A"}</p>
+              <p><b>ISP:</b> ${geo.data.org || "N/A"}</p>
+            `;
+          } catch {
+            // ✅ Ignore 429 / API failure
+          }
+        }
 
         await transporter.sendMail({
           from: `"Portfolio Alert" <${process.env.EMAIL_USER}>`,
@@ -40,11 +56,8 @@ router.get("/download", (req, res) => {
           html: `
             <h2>Resume Download Alert</h2>
             <p><b>Time:</b> ${new Date().toLocaleString()}</p>
-            <p><b>IP:</b> ${finalIP}</p>
-            <p><b>Country:</b> ${geo.data.country_name}</p>
-            <p><b>City:</b> ${geo.data.city}</p>
-            <p><b>Region:</b> ${geo.data.region}</p>
-            <p><b>ISP:</b> ${geo.data.org}</p>
+            <p><b>IP:</b> ${finalIP || "Unknown"}</p>
+            ${locationHTML}
           `
         });
       } catch (err) {
@@ -54,7 +67,6 @@ router.get("/download", (req, res) => {
 
   } catch (error) {
     console.error("Resume download error:", error);
-    res.status(500).send("Unable to download resume");
   }
 });
 
