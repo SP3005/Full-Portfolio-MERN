@@ -1,31 +1,17 @@
-const Visitor = require("../models/Visitor");
+const router = require("express").Router();
+const auth = require("../middleware/auth.middleware");
 
-exports.trackVisitor = async (req, res) => {
-  try {
-    const userAgent = req.headers["user-agent"] || "";
+const {
+  trackVisitor,
+  getAnalytics,
+  getAdvancedAnalytics
+} = require("../controllers/visitor.controller");
 
-    // Simple device detection
-    const device = /mobile/i.test(userAgent) ? "Mobile" : "Desktop";
+/* Public */
+router.post("/track", trackVisitor);
 
-    // Simple browser detection
-    let browser = "Unknown";
-    if (/chrome/i.test(userAgent)) browser = "Chrome";
-    else if (/firefox/i.test(userAgent)) browser = "Firefox";
-    else if (/safari/i.test(userAgent)) browser = "Safari";
-    else if (/edge/i.test(userAgent)) browser = "Edge";
+/* Admin */
+router.get("/analytics", auth, getAnalytics);
+router.get("/advanced", auth, getAdvancedAnalytics);
 
-    // Save visitor WITHOUT external APIs
-    await Visitor.create({
-      device,
-      browser
-      // country & city stay "Unknown"
-    });
-
-    return res.json({ success: true });
-  } catch (error) {
-    console.error("Visitor tracking error:", error.message);
-
-    // ❗ NEVER fail tracking endpoint
-    return res.json({ success: true });
-  }
-};
+module.exports = router;
