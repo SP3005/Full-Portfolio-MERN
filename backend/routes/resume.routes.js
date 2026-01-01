@@ -1,8 +1,8 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
-const axios = require("axios");
 const transporter = require("../config/mail");
+const Visitor = require("../models/Visitor");
 
 const router = express.Router();
 
@@ -14,40 +14,14 @@ router.get("/download", (req, res) => {
       return res.status(404).send("Resume not found");
     }
 
-    // ⚡ 1️⃣ Send resume instantly
+    // ⚡ 1️⃣ Send resume immediately (NO WAIT)
     res.download(filePath, "Sujal_Patel_Resume.pdf");
 
-    // 🚀 2️⃣ Background email (NON-BLOCKING)
+    // 🚀 2️⃣ Background email (NO EXTERNAL CALLS)
     (async () => {
       try {
-        const ip =
-          req.headers["x-forwarded-for"]?.split(",")[0] ||
-          req.socket.remoteAddress;
-
-        const finalIP =
-          ip === "::1" || ip.startsWith("127.")
-            ? null
-            : ip;
-
-        let locationHTML = "<p><b>Location:</b> Not available</p>";
-
-        if (finalIP) {
-          try {
-            const geo = await axios.get(
-              `https://ipapi.co/${finalIP}/json/`,
-              { timeout: 3000 }
-            );
-
-            locationHTML = `
-              <p><b>Country:</b> ${geo.data.country_name || "N/A"}</p>
-              <p><b>City:</b> ${geo.data.city || "N/A"}</p>
-              <p><b>Region:</b> ${geo.data.region || "N/A"}</p>
-              <p><b>ISP:</b> ${geo.data.org || "N/A"}</p>
-            `;
-          } catch {
-            // ✅ Ignore 429 / API failure
-          }
-        }
+        // Get latest visitor info (already tracked)
+        const visitor = await Visitor.findOne().sort({ visitedAt: -1 });
 
         await transporter.sendMail({
           from: `"Portfolio Alert" <${process.env.EMAIL_USER}>`,
@@ -56,8 +30,10 @@ router.get("/download", (req, res) => {
           html: `
             <h2>Resume Download Alert</h2>
             <p><b>Time:</b> ${new Date().toLocaleString()}</p>
-            <p><b>IP:</b> ${finalIP || "Unknown"}</p>
-            ${locationHTML}
+            <p><b>Country:</b> ${visitor?.country || "Unknown"}</p>
+            <p><b>City:</b> ${visitor?.city || "Unknown"}</p>
+            <p><b>Device:</b> ${visitor?.device || "Unknown"}</p>
+            <p><b>Browser:</b> ${visitor?.browser || "Unknown"}</p>
           `
         });
       } catch (err) {
@@ -65,8 +41,8 @@ router.get("/download", (req, res) => {
       }
     })();
 
-  } catch (error) {
-    console.error("Resume download error:", error);
+  } catch (err) {
+    console.error("Resume download error:", err);
   }
 });
 
