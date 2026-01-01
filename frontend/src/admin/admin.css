@@ -1,0 +1,85 @@
+/* ===== ADMIN LAYOUT ===== */
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #121212;
+  color: #fff;
+  font-family: system-ui, sans-serif;
+}
+
+/* ===== SIDEBAR ===== */
+.admin-layout aside {
+  width: 240px;
+  background: #181818;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-layout aside h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #fff;
+}
+
+.admin-layout aside a {
+  color: #aaa;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.admin-layout aside a:hover,
+.admin-layout aside a.active {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+/* ===== MAIN ===== */
+.admin-layout main {
+  flex: 1;
+  padding: 32px;
+  overflow-y: auto;
+}
+
+/* ===== DASHBOARD ===== */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: #1f1f1f;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+/* ===== CHART BLOCK ===== */
+.chart-box {
+  background: #1f1f1f;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #333;
+}
+
+th {
+  color: #aaa;
+  text-align: left;
+}
