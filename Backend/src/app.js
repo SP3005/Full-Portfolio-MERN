@@ -14,7 +14,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://sujalportfolio30.netlify.app/"
+      "https://sujalportfolio30.netlify.app"
     ],
     methods: ["GET", "POST", "OPTIONS"],
     credentials: true
