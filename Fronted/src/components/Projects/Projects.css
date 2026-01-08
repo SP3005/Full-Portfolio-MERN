@@ -1,0 +1,345 @@
+:root {
+  --bg-main: #06080f;
+  --bg-card: #0b1220;
+
+  --text-main: #eaf1ff;
+  --text-muted: #b8c7e0;
+
+  --accent: #4da3ff;
+  --border: #111a33;
+
+  --glow: rgba(77, 163, 255, 0.35);
+}
+
+/* LIGHT MODE */
+body.light {
+  --bg-main: #f6f8fc;
+  --bg-card: #ffffff;
+
+  --text-main: #0f172a;
+  --text-muted: #475569;
+
+  --accent: #2563eb;
+  --border: #dbe3f0;
+
+  --glow: rgba(37, 99, 235, 0.35);
+}
+
+
+    .works-title-wrap {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+
+    .works-title-left {
+      text-align: right;
+    }
+
+    .works-title-right {
+      text-align: left;
+    }
+
+    /* LEFT SIDE LINE */
+    .works-title-left::after {
+      content: "";
+      position: absolute;
+      top: 22%;
+      left: 50%;
+      width: 450px;
+      height: 3px;
+      background: #ff6b6b;
+      opacity: 0.9;
+    }
+
+    /* RIGHT SIDE LINE */
+    .works-title-right::before {
+      content: "";
+      position: absolute;
+      top: 25%;
+      right: 50%;
+      width: 550px;
+      height: 3px;
+      background: purple;
+      opacity: 0.9;
+    }
+
+
+    .works-title-left::before {
+      left: calc(100% + 450px);
+    }
+
+    .works-title-right::after {
+      right: calc(100% + 140px);
+    }
+
+
+    .works-section {
+      padding: 120px 8%;
+      background: var(--bg-main);
+    }
+
+    .works-title {
+      text-align: center;
+      font-size: 2.6rem;
+      margin-bottom: 90px;
+    }
+
+    .works-title-accent {
+      color: var(--accent);
+    }
+
+    /* TIMELINE */
+    .works-timeline {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .works-timeline-line {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      background: var(--accent);
+      opacity: 0.6;
+      transform: translateX(-50%);
+    }
+
+    /* ITEM */
+    .works-title-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+      margin-bottom: 120px;
+      position: relative;
+    }
+
+    .works-title-wrap.works-title-left::before {
+      content: "";
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      width: 14px;
+      height: 14px;
+      background: #ff6b6b;
+      border-radius: 50%;
+      transform: translateX(-50%);
+    }
+
+    .works-title-wrap.works-title-right::after {
+      content: "";
+      position: absolute;
+      top: 23%;
+      left: 50%;
+      width: 14px;
+      height: 14px;
+      background: purple;
+      border-radius: 50%;
+      transform: translateX(-50%);
+    }
+
+
+
+    /* IMAGE CARD */
+    .works-card-image {
+      background: var(--bg-card);
+      border-radius: 18px;
+      padding: 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .works-card-image img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+
+    /* CONTENT */
+    .works-card-content {
+      max-width: 420px;
+    }
+
+    .works-project-title {
+      font-size: 1.4rem;
+      margin-bottom: 14px;
+    }
+
+    .works-project-red {
+      color: #ff6b6b;
+      position: relative;
+    }
+
+    .works-project-red::after {
+      content: "";
+      position: absolute;
+      border: 1 solid red;
+      width: 2px;
+      height: 10px;
+    }
+
+    .works-project-blue {
+      color: purple;
+    }
+
+    .works-project-desc {
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* TAGS */
+    .works-project-tags {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .works-project-tags span {
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+
+    /* =========================================
+   CLEAN MOBILE PROJECT DESIGN
+========================================= */
+
+    @media (max-width: 900px) {
+
+        .works-section{
+            padding: 120px 8% 0 8%;
+        }
+
+      /* Remove timeline visuals */
+      .works-timeline-line {
+        display: none;
+      }
+
+      .works-title-wrap::before {
+        display: none;
+      }
+
+      /* Stack items cleanly */
+      .works-title-wrap {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 70px;
+        padding: 28px;
+        border-radius: 18px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+      }
+
+      /* Accent bar (color comes from title) */
+      .works-item-mobile {
+        border-left: 4px solid currentColor;
+      }
+
+      /* Image first */
+      .works-card-image {
+        order: -1;
+        padding: 10px;
+      }
+
+      /* Content full width */
+      .works-card-content {
+        max-width: 100%;
+        text-align: left;
+      }
+
+      /* Disable title connector lines */
+      .works-title-left::after,
+      .works-title-right::before,
+      .works-title-left::before,
+      .works-title-right::after {
+        display: none;
+      }
+
+      /* Reduce title size */
+      .works-project-title {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* SMALL MOBILE */
+    @media (max-width: 480px) {
+
+      .works-title-wrap {
+        padding: 22px;
+      }
+
+      .works-project-desc {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .works-project-tags span {
+        font-size: 11px;
+        padding: 5px 10px;
+      }
+    }
+
+
+    /* ===============================
+   PROJECT LINKS (LIVE / SOURCE)
+=============================== */
+
+.works-project-links {
+  margin-top: 24px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.works-project-links a {
+  text-decoration: none;
+  font-size: 14px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+/* LIVE BUTTON */
+.works-link-live {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.works-link-live:hover {
+  box-shadow: 0 0 25px var(--glow);
+  transform: translateY(-2px);
+}
+
+/* SOURCE BUTTON */
+.works-link-code {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-main);
+}
+
+.works-link-code:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .works-project-links {
+    gap: 10px;
+  }
+
+  .works-project-links a {
+    font-size: 13px;
+    padding: 9px 14px;
+  }
+}
