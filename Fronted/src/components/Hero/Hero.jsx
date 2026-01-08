@@ -7,7 +7,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   useEffect(() => {
-    /* FLOATING BLOB */
     gsap.to(".blob", {
       y: 40,
       x: -30,
@@ -17,7 +16,6 @@ const Hero = () => {
       ease: "sine.inOut",
     });
 
-    /* DOTS FADE */
     gsap.to(".dots", {
       opacity: 0.6,
       duration: 6,
@@ -25,7 +23,6 @@ const Hero = () => {
       yoyo: true,
     });
 
-    /* BOTTOM WAVE */
     gsap.to(".wave path", {
       y: -10,
       duration: 6,
@@ -37,7 +34,6 @@ const Hero = () => {
 
   return (
     <section className="hero" id="home">
-      {/* SVG BACKGROUND SHAPES */}
       <svg className="hero-shape blob" viewBox="0 0 600 600">
         <path
           fill="var(--accent-soft)"
@@ -60,7 +56,6 @@ const Hero = () => {
       </svg>
 
       <div className="hero-container">
-        {/* LEFT */}
         <div>
           <div className="badge">MERN Stack & Frontend Developer</div>
 
@@ -86,9 +81,7 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* RIGHT */}
         <div className="hero-visual">
-          {/* OUTER CIRCLE */}
           <div className="circle outer">
             <div className="icon">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
@@ -104,7 +97,6 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* INNER CIRCLE */}
           <div className="circle inner">
             <div className="icon">
               <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
@@ -117,14 +109,12 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* AVATAR */}
           <div className="avatar">
             <img src="/6de78a41-fa1b-4fbe-9ac7-6cbc6306ff48.png" />
           </div>
         </div>
       </div>
 
-      {/* BOTTOM WAVE */}
       <svg className="hero-bottom wave" viewBox="0 0 1440 120" preserveAspectRatio="none">
         <path
           d="M0,40 C240,90 480,10 720,30 960,50 1200,110 1440,80 L1440,120 L0,120 Z"

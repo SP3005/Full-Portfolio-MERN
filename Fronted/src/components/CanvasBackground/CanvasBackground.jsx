@@ -8,7 +8,6 @@ const CanvasBackground = ({ isLight }) => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
-    /* ---------- RESIZE ---------- */
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -16,7 +15,6 @@ const CanvasBackground = ({ isLight }) => {
     resize();
     window.addEventListener("resize", resize);
 
-    /* ---------- TAGS ---------- */
     const TAGS = [
       { text: "<header>", color: "#5b7cff" },
       { text: "<nav>", color: "#5b7cff" },
@@ -29,7 +27,6 @@ const CanvasBackground = ({ isLight }) => {
       { text: "Hello World", color: "#556" }
     ];
 
-    /* ---------- ITEMS ---------- */
     const items = Array.from({ length: 90 }, () => ({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
@@ -39,7 +36,6 @@ const CanvasBackground = ({ isLight }) => {
       data: TAGS[Math.floor(Math.random() * TAGS.length)]
     }));
 
-    /* ---------- HELPERS ---------- */
     const hex = (h) => {
       const v = h.replace("#", "").match(/.{1,2}/g);
       return `${parseInt(v[0], 16)},${parseInt(v[1], 16)},${parseInt(v[2], 16)}`;
@@ -57,7 +53,6 @@ const CanvasBackground = ({ isLight }) => {
       ctx.fillText(t.data.text, t.x, t.y);
     };
 
-    /* ---------- ANIMATE ---------- */
     let rafId;
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -79,7 +74,6 @@ const CanvasBackground = ({ isLight }) => {
 
     animate();
 
-    /* ---------- CLEANUP ---------- */
     return () => {
       window.removeEventListener("resize", resize);
       cancelAnimationFrame(rafId);

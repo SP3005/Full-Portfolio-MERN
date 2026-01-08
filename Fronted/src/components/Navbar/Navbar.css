@@ -40,31 +40,30 @@
       --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
       --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
     }
-/* ================= LIGHT MODE ================= */
-body.light {
-  --bg-main: #f8fafc;
 
-  --bg-glass-dark: linear-gradient(
-    180deg,
-    rgba(245, 247, 250, 0.92),
-    rgba(235, 238, 243, 0.85)
-  );
+    /* ================= LIGHT MODE ================= */
+    body.light {
+      --bg-main: #f8fafc;
 
-  --text-primary: #0f172a;
-  --text-secondary: #334155;
-  --text-muted: #64748b;
+      --bg-glass-dark: linear-gradient(180deg,
+          rgba(245, 247, 250, 0.92),
+          rgba(235, 238, 243, 0.85));
 
-  --accent: #2563eb;
-  --accent-soft: rgba(37, 99, 235, 0.18);
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
 
-  --card-bg: rgba(255, 255, 255, 0.85);
-  --border-soft: rgba(0, 0, 0, 0.08);
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.18);
 
-  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
-}
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --border-soft: rgba(0, 0, 0, 0.08);
 
-/*/* ================= NAVBAR ================= */
+      --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.15);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    /*/* ================= NAVBAR ================= */
 
 
     .navbar {
@@ -165,9 +164,9 @@ body.light {
       transition: 0.25s;
     }
 
-    .nav-links a img{
-        height: 30px;
-        width: 30px;
+    .nav-links a img {
+      height: 30px;
+      width: 30px;
     }
 
     .nav-links a:hover::after {
@@ -335,8 +334,8 @@ body.light {
     }
 
     .mobile-resume {
-  display: none;
-}
+      display: none;
+    }
 
 
 
@@ -357,27 +356,31 @@ body.light {
         transition: 0.3s;
         width: 300px;
       }
-        .resume-btn {
-    display: none;
-  }
-    .mobile-resume {
-    display: block;
-    margin-top: 10px;
-  }
-    .mobile-resume-btn {
-    /* width: 100%; */
-    padding: 12px;  
-    border-radius: 12px;
-    text-align: center;
-    background: linear-gradient(135deg, var(--accent), #6366f1);
-    color: white;
-    /* font-weight: 600; */
-    text-decoration: none;
-    display: block;
-  }
-    .mobile-resume-btn:hover {
-    opacity: 0.9;
-  }
+
+      .resume-btn {
+        display: none;
+      }
+
+      .mobile-resume {
+        display: block;
+        margin-top: 10px;
+      }
+
+      .mobile-resume-btn {
+        /* width: 100%; */
+        padding: 12px;
+        border-radius: 12px;
+        text-align: center;
+        background: linear-gradient(135deg, var(--accent), #6366f1);
+        color: white;
+        /* font-weight: 600; */
+        text-decoration: none;
+        display: block;
+      }
+
+      .mobile-resume-btn:hover {
+        opacity: 0.9;
+      }
 
       .nav-links.active {
         transform: translateX(0);

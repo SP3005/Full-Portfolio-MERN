@@ -6,9 +6,9 @@
   --text-muted: #94a3b8;
 
   --accent: #4da3ff;
-  --border-soft: rgba(255,255,255,0.06);
+  --border-soft: rgba(255, 255, 255, 0.06);
 
-  --glow: rgba(77,163,255,0.35);
+  --glow: rgba(77, 163, 255, 0.35);
 }
 
 /* LIGHT MODE */
@@ -20,9 +20,9 @@ body.light {
   --text-muted: #475569;
 
   --accent: #2563eb;
-  --border-soft: rgba(0,0,0,0.08);
+  --border-soft: rgba(0, 0, 0, 0.08);
 
-  --glow: rgba(37,99,235,0.35);
+  --glow: rgba(37, 99, 235, 0.35);
 }
 
 .site-footer {
@@ -112,7 +112,7 @@ body.light {
   transform: translateY(-3px);
 }
 
-.footer-social-links a img{
+.footer-social-links a img {
   height: 27px;
   width: 27px;
 }
@@ -121,7 +121,7 @@ body.light {
 .footer-bottom {
   margin-top: 70px;
   padding: 20px 0;
-  text-align: center;  
+  text-align: center;
   border-top: 1px solid var(--border-soft);
 }
 

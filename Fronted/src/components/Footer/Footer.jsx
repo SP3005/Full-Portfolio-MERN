@@ -12,7 +12,6 @@ const Footer = () => {
   return (
     <footer className="site-footer">
       <div className="footer-container">
-        {/* BRAND */}
         <div className="footer-brand">
           <h3 className="footer-logo">
             Sujal<span> Patel</span>.
@@ -23,7 +22,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* QUICK LINKS */}
         <div className="footer-links">
           <h4>Quick Links</h4>
           <ul>
@@ -34,7 +32,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* SOCIAL */}
         <div className="footer-social">
           <h4>Connect</h4>
           <div className="footer-social-links">
@@ -48,7 +45,7 @@ const Footer = () => {
               <img src={email} alt="Email" />
             </a>
             <a href="tel:+91 9909502307">
-                <img src={phone} alt="Email" />
+              <img src={phone} alt="Email" />
             </a>
             <a href="https://wa.me/919909502307" aria-label="WhatsApp">
               <img src={whatsapp} alt="WhatsApp" />
@@ -57,7 +54,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* COPYRIGHT */}
       <div className="footer-bottom">
         <p>© {year} Sujal Patel. All rights reserved.</p>
       </div>

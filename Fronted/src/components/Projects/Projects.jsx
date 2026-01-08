@@ -10,10 +10,8 @@ const Projects = () => {
       </h2>
 
       <div className="works-timeline">
-        {/* CENTER LINE */}
         <div className="works-timeline-line"></div>
 
-        {/* PROJECT 1 */}
         <div className="works-title-wrap works-title-left works-item-mobile">
           <div className="works-card-image">
             <img src={project1} alt="Share Life Give Blood Project" />
@@ -58,7 +56,6 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* PROJECT 2 */}
         <div className="works-title-wrap works-title-right works-item-mobile">
           <div className="works-card-content">
             <h3 className="works-project-title works-project-blue">

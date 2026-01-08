@@ -10,7 +10,6 @@ exports.submitContact = async (req, res) => {
 
     await Contact.create({ name, email, message, subject });
 
-    // ✅ NON-BLOCKING EMAIL (IMPORTANT)
     sendMail({
       subject: "📩 New Contact Message",
       html: `

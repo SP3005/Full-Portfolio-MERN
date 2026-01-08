@@ -5,18 +5,16 @@
   --text-muted: #b8c7e0;
 
   --accent: #4da3ff;
-  --border: rgba(255,255,255,0.08);
+  --border: rgba(255, 255, 255, 0.08);
 
-  --card-dark: linear-gradient(
-    180deg,
-    #0b1220 0%,
-    #090f1d 100%
-  );
+  --card-dark: linear-gradient(180deg,
+      #0b1220 0%,
+      #090f1d 100%);
 
   --input-bg: #0a1020;
   --input-bg-focus: #0b1228;
 
-  --glow: rgba(77,163,255,0.4);
+  --glow: rgba(77, 163, 255, 0.4);
 }
 
 /* LIGHT MODE */
@@ -27,18 +25,16 @@ body.light {
   --text-muted: #475569;
 
   --accent: #2563eb;
-  --border: rgba(0,0,0,0.1);
+  --border: rgba(0, 0, 0, 0.1);
 
-  --card-dark: linear-gradient(
-    180deg,
-    #ffffff 0%,
-    #f1f5ff 100%
-  );
+  --card-dark: linear-gradient(180deg,
+      #ffffff 0%,
+      #f1f5ff 100%);
 
   --input-bg: #ffffff;
   --input-bg-focus: #eef3ff;
 
-  --glow: rgba(37,99,235,0.35);
+  --glow: rgba(37, 99, 235, 0.35);
 }
 
 
@@ -105,8 +101,8 @@ body.light {
   border-radius: 22px;
   padding: 42px;
   box-shadow:
-    0 20px 60px rgba(0,0,0,0.55),
-    inset 0 1px 0 rgba(255,255,255,0.03);
+    0 20px 60px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .contact-form-title {
@@ -145,11 +141,9 @@ body.light {
 /* BUTTON */
 .contact-submit-btn {
   width: 100%;
-  background: linear-gradient(
-    135deg,
-    #4da3ff,
-    #2563eb
-  );
+  background: linear-gradient(135deg,
+      #4da3ff,
+      #2563eb);
   color: #fff;
   border: none;
   border-radius: 16px;
@@ -161,7 +155,7 @@ body.light {
 }
 
 .contact-submit-btn:hover {
-  box-shadow: 0 15px 40px rgba(77,163,255,0.4);
+  box-shadow: 0 15px 40px rgba(77, 163, 255, 0.4);
   transform: translateY(-2px);
 }
 
@@ -187,7 +181,7 @@ body.light {
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: rgba(77,163,255,0.12);
+  background: rgba(77, 163, 255, 0.12);
   color: var(--accent);
   font-size: 20px;
 }
@@ -207,11 +201,13 @@ body.light {
   font-size: 15px;
   text-decoration: none;
 }
+
 .contact-socials img,
-.contact-info-icon img{
+.contact-info-icon img {
   height: 27px;
   width: 27px;
 }
+
 /* ===============================
    SOCIAL ICONS
 =============================== */
@@ -238,7 +234,7 @@ body.light {
 .contact-socials a:hover {
   background: var(--accent);
   color: #fff;
-  box-shadow: 0 10px 30px rgba(77,163,255,0.35);
+  box-shadow: 0 10px 30px rgba(77, 163, 255, 0.35);
   transform: translateY(-3px);
 }
 
@@ -251,7 +247,8 @@ body.light {
     grid-template-columns: 1fr;
     gap: 60px;
   }
-  .contact-info-panel{
+
+  .contact-info-panel {
     grid-row: 1;
   }
 

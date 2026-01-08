@@ -90,11 +90,11 @@ const Navbar = ({ setIsLight }) => {
 
       <div className="actions">
         <a
-            href={`${import.meta.env.VITE_API_BASE_URL}/api/resume/download`}
-            className="btn"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          href={`${import.meta.env.VITE_API_BASE_URL}/api/resume/download`}
+          className="btn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <svg class="resume-icon" viewBox="0 0 24 24">
             <path d="M12 16l4-5h-3V4h-2v7H8z" />
             <path d="M5 20h14v-2H5z" />

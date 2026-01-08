@@ -5,10 +5,8 @@ import "./About.css";
 
 const About = () => {
   useEffect(() => {
-    // ✅ Register plugin INSIDE effect (safe for React)
     gsap.registerPlugin(ScrollTrigger);
 
-    /* SECTION TITLE + CARD STAGGER */
     gsap.utils.toArray(".section-title").forEach((title) => {
       const section = title.parentElement;
 
@@ -48,7 +46,6 @@ const About = () => {
       );
     });
 
-    /* ACTIVE TIMELINE CARD */
     gsap.utils.toArray(".timeline-item").forEach((item) => {
       ScrollTrigger.create({
         trigger: item,
@@ -61,7 +58,6 @@ const About = () => {
       });
     });
 
-    // ✅ Cleanup (prevents StrictMode double run issues)
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
       gsap.killTweensOf("*");
@@ -70,7 +66,6 @@ const About = () => {
 
   return (
     <section className="about-journey" id="about">
-      {/* ROTATING RING */}
       <svg className="svg-ring" viewBox="0 0 200 200">
         <circle
           cx="100"
@@ -88,7 +83,6 @@ const About = () => {
       </h2>
 
       <div className="journey-layout">
-        {/* LEFT TIMELINE */}
         <div className="timeline">
           <h3 className="section-title">Education Background</h3>
 
@@ -129,7 +123,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* RIGHT SUMMARY */}
         <div className="summary">
           <h3 className="section-title">Professional Summary</h3>
 

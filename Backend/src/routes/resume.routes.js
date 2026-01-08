@@ -7,7 +7,6 @@ const router = express.Router();
 
 router.get("/download", resumeLimiter, async (req, res) => {
   try {
-    // ✅ NON-BLOCKING EMAIL (IMPORTANT)
     sendMail({
       subject: "📄 Resume Downloaded",
       html: `

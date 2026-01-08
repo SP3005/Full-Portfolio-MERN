@@ -8,15 +8,13 @@ const resumeRoutes = require("./routes/resume.routes");
 
 const app = express();
 
-/* ✅ REQUIRED FOR RENDER */
 app.set("trust proxy", 1);
 
-/* ✅ FINAL CORS CONFIG (LOCAL FRONTEND) */
 app.use(
   cors({
     origin: [
-      "http://localhost:5173",            // local dev
-      "https://aditiportfolio02.netlify.app" // production
+      "http://localhost:5173",
+      "https://sujalportfolio30.netlify.app/"
     ],
     methods: ["GET", "POST", "OPTIONS"],
     credentials: true

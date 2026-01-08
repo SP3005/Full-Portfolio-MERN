@@ -11,7 +11,6 @@ const Skills = () => {
       </div>
 
       <div className="skills-grid">
-        {/* FRONTEND */}
         <div className="skill-card frontend">
           <h3>Frontend</h3>
           <div className="icons">
@@ -42,7 +41,6 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* BACKEND */}
         <div className="skill-card backend">
           <h3>Backend</h3>
           <div className="icons">
@@ -63,7 +61,6 @@ const Skills = () => {
           </div>
         </div>
 
-        {/* AI & TOOLS */}
         <div className="skill-card tools">
           <h3>AI & Tools</h3>
           <div className="icons">

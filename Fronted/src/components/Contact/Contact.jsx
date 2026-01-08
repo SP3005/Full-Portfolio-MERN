@@ -1,4 +1,4 @@
-import { useState } from "react"; // ✅ FIX 1
+import { useState } from "react";
 import "./Contact.css";
 
 import email from "./images/email.png";
@@ -18,7 +18,7 @@ export default function Contact() {
 
   const [status, setStatus] = useState("");
 
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL; // ✅ SAFE
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -70,7 +70,6 @@ export default function Contact() {
       </div>
 
       <div className="contact-layout">
-        {/* FORM */}
         <div className="contact-form-card">
           <h3 className="contact-form-title">Send a Message</h3>
 
@@ -89,7 +88,6 @@ export default function Contact() {
           </form>
         </div>
 
-        {/* INFO */}
         <div className="contact-info-panel">
           <div className="contact-info-item">
             <img src={email} alt="Email" />
