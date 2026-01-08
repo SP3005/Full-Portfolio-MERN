@@ -18,7 +18,7 @@ router.get("/download", resumeLimiter, async (req, res) => {
 
     const filePath = path.join(__dirname, "../assets/resume.pdf");
 
-    res.download(filePath, "Aditi_Modhvadiya_Resume.pdf");
+    res.download(filePath, "Sujal_Patel_Resume.pdf");
   } catch (err) {
     console.error(err);
     res.status(500).send("Error downloading resume");
