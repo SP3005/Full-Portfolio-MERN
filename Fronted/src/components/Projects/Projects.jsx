@@ -37,7 +37,7 @@ const Projects = () => {
 
             <div className="works-project-links">
               <a
-                href="https://sharelifegiveblood.netlify.app"
+                href="https://sharelifegiveblood1.netlify.app/"
                 target="_blank"
                 rel="noreferrer"
                 className="works-link-live"
@@ -77,7 +77,7 @@ const Projects = () => {
 
             <div className="works-project-links">
               <a
-                href="#"
+                href="https://sujalportfolio30.netlify.app/"
                 target="_blank"
                 rel="noreferrer"
                 className="works-link-live"
@@ -85,7 +85,7 @@ const Projects = () => {
                 Live Demo
               </a>
               <a
-                href="#"
+                href="https://github.com/SP3005/Full-Portfolio-MERN"
                 target="_blank"
                 rel="noreferrer"
                 className="works-link-code"
